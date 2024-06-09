@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-image-demo
+  labels:
+    app: nodejs-image-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nodejs-image-demo
+  template:
+    metadata:
+      labels:
+        app: nodejs-image-demo
+    spec:
+      containers:
+      - name: nodejs-image-demo
+        image: adriantorres087/nodejs-image-demo:latest
+        ports:
+        - containerPort: 8080
